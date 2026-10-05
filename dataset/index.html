@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dataset | Breast Cancer Wisconsin</title><link rel="stylesheet" href="../style.css"></head><body><div class="course-shell">
+<aside class="sidebar"><div class="brand">Bioinformatics ML</div><div class="section">Course Menu</div><a class="" href="../index.html">Course Home</a><a class="" href="../pre-class/index.html">Pre-Class</a><a class="" href="../concept/index.html">ML Concepts</a><a class="active" href="../dataset/index.html">Dataset</a><a class="" href="../lab/index.html">In-Class Lab</a><a class="" href="../assignment/index.html">Assignment</a><div class="section">Case Study</div><a href="../dataset/index.html">Breast Cancer Wisconsin</a></aside><div class="course-content">
+<header><div class="wrap"><div class="eyebrow">Case Study Dataset</div><h1>Breast Cancer Wisconsin Diagnostic Dataset</h1>
+<p class="subtitle">A compact biomedical classification dataset for learning the complete machine-learning workflow.</p></div></header>
+<main class="wrap">
+<section class="card"><span class="badge">Dataset Overview</span><h2>Predicting Malignant vs. Benign Tumors</h2>
+<p>The dataset contains numerical characteristics computed from digitized images of fine needle aspirates of breast masses. The learning task is binary classification.</p>
+<div class="dataset-facts"><div class="fact"><strong>569</strong>samples</div><div class="fact"><strong>30</strong>predictor features</div><div class="fact"><strong>2</strong>classes</div><div class="fact"><strong>0</strong>missing values in the supplied CSV</div></div></section>
+<section class="card" style="margin-top:20px"><h2>Dataset Source and Citation</h2>
+<p>The project file <code>dataset/cancer.csv</code> is a local copy of the Breast Cancer Wisconsin (Diagnostic) dataset from the <a href="https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic">UCI Machine Learning Repository</a>.</p>
+<p>Wolberg, W., Street, N., &amp; Mangasarian, O. (1995). <em>Breast Cancer Wisconsin (Diagnostic)</em> [Dataset]. UCI Machine Learning Repository. <a href="https://doi.org/10.24432/C5DW2B">https://doi.org/10.24432/C5DW2B</a>.</p></section>
+<section class="card" style="margin-top:20px"><h2>Target Variable</h2><table><tr><th>Class</th><th>Meaning</th></tr><tr><td>Malignant</td><td>Cancerous tumor</td></tr><tr><td>Benign</td><td>Non-cancerous tumor</td></tr></table></section>
+<section class="card" style="margin-top:20px"><h2>Feature Groups</h2>
+<p>Ten underlying cell-nucleus characteristics are summarized using <strong>mean</strong>, <strong>standard error</strong>, and <strong>worst/largest</strong> values, producing 30 predictors.</p>
+<table><tr><th>Characteristic</th><th>Example variables</th></tr><tr><td>Radius</td><td>mean radius, radius error, worst radius</td></tr><tr><td>Texture</td><td>mean texture, texture error, worst texture</td></tr><tr><td>Perimeter / Area</td><td>size-related measurements</td></tr><tr><td>Smoothness / Compactness</td><td>shape and boundary characteristics</td></tr><tr><td>Concavity / Concave points</td><td>contour characteristics</td></tr><tr><td>Symmetry / Fractal dimension</td><td>shape-complexity characteristics</td></tr></table></section>
+<section class="card" style="margin-top:20px"><h2>Load the Dataset</h2><pre>import pandas as pd
+
+data = pd.read_csv("dataset/cancer.csv")
+X = data.drop(columns=["target"])
+y = data["target"]
+
+print(X.shape)
+print(y.value_counts())
+display(X.head())</pre>
+<p>The CSV file is included in the project at <code>dataset/cancer.csv</code>; no separate download is required.</p></section>
+<section class="card" style="margin-top:20px"><h2>Research Questions</h2><ol><li>Can the diagnostic measurements distinguish malignant from benign samples?</li><li>Which evaluation metric is most appropriate for this task?</li><li>Which features contribute most to prediction?</li><li>How stable is performance on unseen data?</li><li>Why does predictive importance not establish biological causality?</li></ol>
+<a class="btn" href="../lab/index.html">Continue to ML Lab →</a></section>
+</main><footer>Breast Cancer Wisconsin Diagnostic Dataset • Educational ML Case Study</footer></div></div></body></html>

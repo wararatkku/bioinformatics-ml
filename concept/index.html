@@ -1,0 +1,169 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Machine Learning Concepts</title><link rel="stylesheet" href="../style.css"></head><body><div class="course-shell"><aside class="sidebar"><div class="brand">Bioinformatics ML</div><div class="section">Course Menu</div><a class="" href="../index.html">Course Home</a><a class="" href="../pre-class/index.html">Pre-Class</a><a class="active" href="../concept/index.html">ML Concepts</a><a class="" href="../dataset/index.html">Dataset</a><a class="" href="../lab/index.html">In-Class Lab</a><a class="" href="../assignment/index.html">Assignment</a><div class="section">Case Study</div><a href="../dataset/index.html">Breast Cancer Wisconsin</a></aside><div class="course-content">
+<header><div class="wrap"><div class="eyebrow">Concept Foundation • Before Hands-on Lab</div>
+<h1>Machine Learning Concepts</h1>
+<p class="subtitle">Understand how machine learning can support the analysis and interpretation of biological data.</p></div></header>
+
+<main class="wrap">
+<section class="card"><span class="badge">Concept 1</span><h2>What is Machine Learning?</h2>
+<p>Machine learning is a computational approach in which algorithms learn patterns from data and use those patterns to make predictions or decisions about new data. In bioinformatics, understanding how a model learns and how its results should be evaluated helps researchers interpret computational evidence responsibly.</p>
+<div class="callout"><strong>Bioinformatics example:</strong> A model can learn patterns from biomedical measurements and predict whether a new sample belongs to a diagnostic class. Researchers then evaluate how reliable that prediction is and what its limitations are.</div>
+<figure class="ml-workflow-figure">
+<div class="ml-workflow-scroll">
+<svg class="ml-workflow" viewBox="0 0 1200 360" role="img" aria-labelledby="ml-workflow-title ml-workflow-description">
+<title id="ml-workflow-title">Machine learning workflow</title>
+<desc id="ml-workflow-description">Five steps: collect labeled data, prepare and split it, train a model, evaluate it on unseen data, and use it to predict new samples. If evaluation is poor, improve the data or model and train again.</desc>
+<defs>
+<marker id="ml-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#176b5b"/></marker>
+<marker id="ml-return-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c47719"/></marker>
+</defs>
+<g class="ml-step">
+<rect x="20" y="42" width="205" height="155" rx="18"/>
+<circle cx="53" cy="75" r="19"/><text class="ml-number" x="53" y="81">1</text>
+<text class="ml-step-title" x="122" y="112">Collect Data</text>
+<text class="ml-step-detail" x="122" y="151">Labeled examples</text>
+</g>
+<g class="ml-step">
+<rect x="260" y="42" width="205" height="155" rx="18"/>
+<circle cx="293" cy="75" r="19"/><text class="ml-number" x="293" y="81">2</text>
+<text class="ml-step-title" x="362" y="112">Prepare Data</text>
+<text class="ml-step-detail" x="362" y="151">Clean • split into sets</text>
+</g>
+<g class="ml-step">
+<rect x="500" y="42" width="205" height="155" rx="18"/>
+<circle cx="533" cy="75" r="19"/><text class="ml-number" x="533" y="81">3</text>
+<text class="ml-step-title" x="602" y="112">Train Model</text>
+<text class="ml-step-detail" x="602" y="151">Learn patterns from training data</text>
+</g>
+<g class="ml-step">
+<rect x="740" y="42" width="205" height="155" rx="18"/>
+<circle cx="773" cy="75" r="19"/><text class="ml-number" x="773" y="81">4</text>
+<text class="ml-step-title" x="842" y="112">Evaluate Model</text>
+<text class="ml-step-detail" x="842" y="151">Test on unseen data</text>
+</g>
+<g class="ml-step">
+<rect x="980" y="42" width="205" height="155" rx="18"/>
+<circle cx="1013" cy="75" r="19"/><text class="ml-number" x="1013" y="81">5</text>
+<text class="ml-step-title" x="1082" y="112">Make Predictions</text>
+<text class="ml-step-detail" x="1082" y="151">Apply to new samples</text>
+</g>
+<path class="ml-flow-arrow" d="M229 119H252"/><path class="ml-flow-arrow" d="M469 119H492"/>
+<path class="ml-flow-arrow" d="M709 119H732"/><path class="ml-flow-arrow" d="M949 119H972"/>
+<path class="ml-feedback-arrow" d="M842 199V263H602V207"/>
+<text class="ml-feedback-label" x="722" y="295">Needs improvement? Refine the data or model, then train again.</text>
+</svg>
+</div>
+<figcaption>Machine learning workflow • Evaluation helps improve the model before deployment.</figcaption>
+</figure></section>
+
+<section class="card" style="margin-top:20px"><span class="badge">Concept 2</span><h2>Supervised vs. Unsupervised Learning</h2>
+<div class="grid">
+<div><h3>Supervised learning</h3><p>Learn from labeled data. <strong>Classification</strong> predicts categories, such as disease vs. non-disease; <strong>regression</strong> predicts continuous values, such as drug response.</p></div>
+<div><h3>Unsupervised learning</h3><p>Find structure in data without known labels. <strong>Clustering</strong> can identify groups or subtypes, while <strong>dimensionality reduction</strong> can summarize high-dimensional biological data.</p></div>
+</div>
+<p>Deep learning uses neural networks to learn complex representations, for example from biological sequences, images, or large-scale omics data.</p></section>
+
+<section class="card" style="margin-top:20px"><span class="badge">Concept 3</span><h2>Features and Target</h2>
+<pre>Biological sample
+      ↓
+Features (X) ─────→ Machine Learning Model ─────→ Target (y)
+
+Examples of X: gene expression, protein levels, clinical measurements
+Examples of y: disease class, phenotype, drug response</pre>
+<p><strong>Question:</strong> In your research problem, what are X and y?</p></section>
+
+<section class="card" style="margin-top:20px"><span class="badge">Concept 4</span><h2>Training, Validation and Testing</h2>
+<pre>Dataset
+  │
+  ├── Training Data ──→ Learn model parameters
+  ├── Validation / Cross-validation ──→ Tune and select models
+  │
+  └── Test Data ──→ Final evaluation on unseen data</pre>
+<p>Use training data to fit the model, validation data or cross-validation to compare choices, and the test set for a final unbiased evaluation. The test set must not influence training, model selection, or preprocessing decisions; otherwise, reported performance may be overly optimistic.</p></section>
+
+<section class="card" style="margin-top:20px"><span class="badge">Concept 5</span><h2>Overfitting and Generalization</h2>
+<div class="grid"><div><h3>Underfitting</h3><p>The model is too simple to capture meaningful patterns. Performance is poor even on training data.</p></div>
+<div><h3>Good Generalization</h3><p>The model learns useful patterns and performs consistently on unseen data.</p></div>
+<div><h3>Overfitting</h3><p>The model learns training-specific noise and performs much worse on unseen data.</p></div></div>
+<p>Good generalization means a model performs well on new samples drawn from the population it is intended to serve.</p></section>
+
+<section class="card" style="margin-top:20px"><span class="badge">Concept 6</span><h2>Classification Metrics</h2>
+<table><tr><th>Metric</th><th>Main Question</th><th>Interpretation</th></tr>
+<tr><td>Accuracy</td><td>How often is the model correct overall?</td><td>Useful when classes and error costs are reasonably balanced.</td></tr>
+<tr><td>Precision</td><td>When the model predicts positive, how often is it correct?</td><td>Important when false positives are costly.</td></tr>
+<tr><td>Recall / Sensitivity</td><td>How many actual positives are detected?</td><td>Important when missing a positive case is costly.</td></tr>
+<tr><td>F1-score</td><td>How well are precision and recall balanced?</td><td>Useful when both error types matter.</td></tr>
+<tr><td>ROC-AUC</td><td>How well can the model rank/separate the two classes?</td><td>Threshold-independent discrimination measure.</td></tr></table>
+<figure class="metrics-figure">
+<h3>See the metrics in a confusion matrix</h3>
+<p class="small">Example: 100 patient samples. Positive = disease present; negative = disease absent.</p>
+<div class="confusion-wrap">
+<table class="confusion-matrix" aria-label="Confusion matrix for 100 hypothetical patient samples">
+<caption>Predicted results</caption>
+<thead><tr><th scope="col">Actual result</th><th scope="col">Positive</th><th scope="col">Negative</th></tr></thead>
+<tbody>
+<tr><th scope="row">Positive</th><td class="cm-tp"><strong>36</strong><span>True positive</span></td><td class="cm-fn"><strong>4</strong><span>False negative</span></td></tr>
+<tr><th scope="row">Negative</th><td class="cm-fp"><strong>6</strong><span>False positive</span></td><td class="cm-tn"><strong>54</strong><span>True negative</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="metric-explainer-grid">
+<div class="metric-explainer"><strong>Accuracy <span>90%</span></strong><p>Correct overall: (36 + 54) / 100</p></div>
+<div class="metric-explainer"><strong>Precision <span>85.7%</span></strong><p>Predicted positives that are correct: 36 / (36 + 6)</p></div>
+<div class="metric-explainer"><strong>Recall / Sensitivity <span>90%</span></strong><p>Actual positives detected: 36 / (36 + 4)</p></div>
+<div class="metric-explainer"><strong>F1-score <span>87.8%</span></strong><p>Harmonic mean of precision and recall</p></div>
+</div>
+<div class="roc-explainer">
+<h3>ROC curve and AUC</h3>
+<div class="roc-chart-wrap">
+<svg class="roc-chart" viewBox="0 0 460 310" role="img" aria-labelledby="roc-title roc-description">
+<title id="roc-title">Illustration of a ROC curve</title>
+<desc id="roc-description">The horizontal axis is false positive rate and the vertical axis is true positive rate. A sample ROC curve rises toward the top-left corner. A diagonal line indicates random guessing. The area under the curve summarizes discrimination across thresholds.</desc>
+<path class="roc-area" d="M70 250 C75 150 95 80 150 52 C205 38 275 34 350 32 L350 250 Z"/>
+<path class="roc-axis" d="M70 30V250H370"/>
+<path class="roc-gridline" d="M70 195H370M70 140H370M70 85H370M145 30V250M220 30V250M295 30V250"/>
+<path class="roc-random" d="M70 250L350 45"/>
+<path class="roc-line" d="M70 250 C75 150 95 80 150 52 C205 38 275 34 350 32"/>
+<text x="220" y="294" class="roc-label">False positive rate</text>
+<text x="22" y="145" class="roc-label roc-y-label" transform="rotate(-90 22 145)">True positive rate</text>
+<text x="253" y="97" class="roc-legend">ROC curve</text>
+<text x="235" y="184" class="roc-random-label">Random guessing</text>
+</svg>
+</div>
+<p>AUC summarizes how well the model distinguishes positive from negative samples across classification thresholds. A curve closer to the top-left indicates better discrimination; the diagonal represents random guessing.</p>
+</div>
+<figcaption>Illustrative results only. The best metric depends on the research question and the consequences of false positives and false negatives.</figcaption>
+</figure>
+<p><strong>Think:</strong> For a biomedical screening problem, which metric would you prioritize and why?</p></section>
+
+<section class="card" style="margin-top:20px"><span class="badge">Concept 7</span><h2>High-Dimensional Biological Data</h2>
+<div class="callout"><strong>Example:</strong> 20,000 genes × 100 patients → <strong>p ≫ n</strong>, where p is the number of features and n is the number of samples.</div>
+<p>In many omics studies, the number of measured variables greatly exceeds the number of patients. A model can fit noise instead of reproducible biology, making this setting especially prone to:</p>
+<ul><li><strong>Overfitting:</strong> excellent training performance but poor results on new patients.</li>
+<li><strong>Unstable feature selection:</strong> small changes in the patient sample can select a different set of genes.</li>
+<li><strong>The curse of dimensionality:</strong> data become sparse and require more samples to estimate patterns reliably.</li>
+<li><strong>Poor generalization:</strong> findings from a small cohort may not transfer to other populations.</li></ul>
+<p>Strategies include <strong>feature selection</strong> to retain informative variables, <strong>dimensionality reduction</strong> to represent data with fewer variables, and <strong>regularization</strong> to penalize overly complex models. Use <strong>cross-validation</strong> to estimate performance robustly and compare choices. Feature selection and all learned preprocessing must happen inside each training fold; doing them before cross-validation leaks information and gives optimistic results.</p></section>
+
+<section class="card" style="margin-top:20px"><span class="badge">Concept 8</span><h2>Data Leakage</h2>
+<p>Data leakage occurs when information that should be unavailable during training influences the model. For example, scaling the complete dataset before splitting can transfer information from the test set into training.</p>
+<pre>Incorrect:
+Full Dataset → Scale → Train/Test Split
+
+Better:
+Full Dataset → Train/Test Split
+                  ↓
+            Fit preprocessing
+            on training data only</pre></section>
+
+<section class="card" style="margin-top:20px"><span class="badge">Concept 9</span><h2>Interpretability ≠ Causality</h2>
+<p>A feature may be highly useful for prediction without being the biological cause of an outcome. Machine-learning feature importance describes predictive contribution within a model—not causal evidence.</p></section>
+
+<section class="card" style="margin-top:20px"><span class="badge">Before the Lab</span><h2>Question Pre-Class</h2>
+<ol><li>How does supervised learning differ from unsupervised learning? Give one bioinformatics example of each.</li>
+<li>For a model that predicts disease status from gene-expression measurements, identify the features (X) and target (y).</li>
+<li>What are the roles of the training, validation (or cross-validation), and test data? Why should the test set be held out until final evaluation?</li>
+<li>In a study with 20,000 genes and 100 patients, what does p ≫ n mean? Name two strategies that can reduce the risks of overfitting and poor generalization.</li>
+<li>For biomedical screening, which classification metric would you prioritize and why? How can you prevent data leakage, and why does feature importance not prove causality?</li></ol>
+<a class="btn" href="../lab/index.html">Continue to the Applied ML Activity →</a></section>
+</main><footer>Machine Learning Concepts • Master's Bioinformatics • Flipped Classroom</footer></div></div></body></html>
