@@ -76,6 +76,10 @@ The lab intentionally emphasizes reasoning rather than maximizing accuracy. Stud
 
 The course uses the **Breast Cancer Wisconsin Diagnostic Dataset** stored in `dataset/cancer.csv`. The notebook and Dataset page load this local CSV file. The website includes the task, sample size, predictors, target classes, feature groups, starter code, and research questions.
 
+## Additional DNA Clustering Use Case
+
+The home page links to `notebooks/Usecase_DNAclassification.ipynb`, which uses the UCI Molecular Biology (Promoter Gene Sequences) dataset for both supervised classification and an unsupervised K-Means clustering demonstration. The clustering uses sequence-position nucleotide encoding and PCA for visualization. Treat it as an exploratory teaching example: cluster IDs are not promoter labels, and apparent separation does not establish biological subtypes. Compare to known labels only after clustering and discuss the limitations of the encoding and algorithm.
+
 ## V4 — Jupyter Notebook Lab Edition
 
 The hands-on session is now designed to be completed inside one guided Jupyter Notebook. It contains 14 steps covering ML concepts, the Breast Cancer Wisconsin dataset, EDA, preprocessing, leakage prevention, Logistic Regression, Decision Tree, Random Forest, metric comparison, confusion matrix, ROC curves, feature importance, model defense, mini challenges, reflection, and a GitHub exit ticket.

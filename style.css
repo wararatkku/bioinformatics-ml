@@ -27,6 +27,9 @@ footer{padding:25px 22px;text-align:center;color:var(--muted);border-top:1px sol
 .concept-figure{margin:18px 0 0}
 .concept-figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:10px}
 .concept-figure figcaption{margin-top:10px;color:var(--muted);font-size:.92rem;text-align:center}
+.dna-case-study{margin-top:32px}
+.dna-analysis-grid{margin-top:18px}
+.dna-analysis-grid h3{color:var(--accent2)}
 .ml-workflow-scroll{overflow-x:auto;padding:4px 0 10px}
 .ml-workflow{display:block;width:100%;min-width:900px;height:auto}
 .ml-step rect{fill:#f4f8f7;stroke:var(--line);stroke-width:2}

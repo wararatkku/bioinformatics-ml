@@ -19,6 +19,7 @@
         ><a href="assignment/index.html">Assignment</a>
         <div class="section">Case Study</div>
         <a href="dataset/index.html">Breast Cancer Wisconsin</a>
+        <a href="#dna-use-case">DNA Promoter Clustering</a>
       </aside>
       <div class="course-content">
         <header>
@@ -124,6 +125,62 @@
               <a class="btn" href="assignment/index.html">View Assignment</a>
             </div>
           </div>
+          <section class="card dna-case-study" id="dna-use-case" aria-labelledby="dna-case-study-title">
+            <span class="badge">Additional use case • Unsupervised learning</span>
+            <h2 id="dna-case-study-title">Explore DNA Promoter Sequences with Clustering</h2>
+            <p>
+              This example uses 106 short DNA sequences from the UCI Molecular
+              Biology (Promoter Gene Sequences) dataset. It encodes each
+              nucleotide by sequence position, applies K-Means with two
+              clusters, and uses PCA to visualize the groups.
+            </p>
+            <div class="grid dna-analysis-grid">
+              <div>
+                <h3>Analysis question</h3>
+                <p>
+                  Do the sequences form groups based on their nucleotide
+                  patterns, without using promoter class labels to create
+                  those groups?
+                </p>
+              </div>
+              <div>
+                <h3>How to interpret it</h3>
+                <p>
+                  Cluster IDs are arbitrary and are not the same as the known
+                  promoter labels. Compare clusters with those labels only
+                  after fitting—for example, with adjusted Rand index (ARI)
+                  or normalized mutual information (NMI).
+                </p>
+              </div>
+              <div>
+                <h3>Limitations to discuss</h3>
+                <p>
+                  This is a small teaching example. Position-wise encoding and
+                  K-Means may miss biologically meaningful motifs or
+                  sequence-shift patterns, so a 2-D plot or apparent
+                  separation is not evidence of a validated biological
+                  subtype.
+                </p>
+              </div>
+            </div>
+            <div class="callout">
+              <strong>Student task:</strong> Compare the clustering with the
+              known labels only after clustering, inspect sequences from each
+              group, and explain what additional biological validation would
+              be needed.
+            </div>
+            <p class="small">
+              Dataset source:
+              <a href="https://archive.ics.uci.edu/dataset/106/molecular+biology+promoter+gene+sequences">
+                UCI Molecular Biology (Promoter Gene Sequences)
+              </a>.
+            </p>
+            <a
+              class="btn"
+              href="https://colab.research.google.com/github/wararatkku/bioinformatics-ml-flipped-classroom/blob/main/notebooks/Usecase_DNAclassification.ipynb"
+              >Open DNA Use Case Notebook in Colab</a
+            >
+          </section>
           <div class="callout">
             <strong>Driving question:</strong> Can a machine-learning model
             predict a biomedical outcome—and can we explain why we should trust
